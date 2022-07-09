@@ -32,7 +32,7 @@ class GetImageLinksEncrypted {
     const links = fileNames.map(file => {
       return {
         url:
-          'http://localhost:9090/api/v2/images/static/' +
+          'https://im-challenge.herokuapp.com/v2/images/static/' +
           this.cryptoProvider.encrypt(file),
       };
     });

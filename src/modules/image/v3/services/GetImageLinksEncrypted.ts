@@ -34,7 +34,7 @@ class GetImageLinksEncrypted {
     const links = fileNames.map(file => {
       return {
         url:
-          'http://localhost:9090/api/v3/images/static/' +
+          'https://im-challenge.herokuapp.com/api/v3/images/static/' +
           this.cryptoProvider.encrypt(
             file + '?expiration_time=' + expirationTime,
           ),

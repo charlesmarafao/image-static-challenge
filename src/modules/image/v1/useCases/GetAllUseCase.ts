@@ -11,7 +11,9 @@ export default class GetAllUseCase {
     const fileNames = await readdir(basename('files'));
 
     const links = fileNames.map(file => {
-      return { url: 'http://localhost:8092/api/v1/images/' + file };
+      return {
+        url: 'https://im-challenge.herokuapp.com/api/v1/images/' + file,
+      };
     });
 
     this.logger.log('info', 'listing address', { links });
