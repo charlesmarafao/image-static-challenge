@@ -13,10 +13,10 @@ import routes from './routes';
 const app = express();
 
 const logger = container.resolve<ILogger>('logger');
-// app.use(cors());
-// app.use(helmet());
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
+app.use(cors());
+app.use(helmet());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // if (logger.http) app.use(logger.http());
 app.use(routes);
