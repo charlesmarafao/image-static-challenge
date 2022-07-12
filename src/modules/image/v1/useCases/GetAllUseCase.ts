@@ -16,7 +16,7 @@ export default class GetAllUseCase {
       };
     });
 
-    this.logger.log('info', 'listing address', { links });
+    this.logger.log('info', 'listing images', { links });
     return links;
   }
 }

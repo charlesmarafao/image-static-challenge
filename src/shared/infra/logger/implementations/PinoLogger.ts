@@ -34,7 +34,8 @@ class PinoLogger implements ILogger {
     message: string,
     metadata?: Record<string, unknown>,
   ): void {
-    return this.logger.info({ msg: message, ...metadata });
+
+    return this.logger[level]({ msg: message, ...metadata });
   }
 
   child(bindings?: Record<string, unknown>): PinoLogger {

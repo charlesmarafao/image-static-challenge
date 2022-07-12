@@ -1,5 +1,6 @@
 import AppError from '@shared/errors/AppError';
 import { NextFunction, Request, Response } from 'express';
+import appConfig from '@config/app';
 
 export default function HandleErrors(
   error: Error,
@@ -12,7 +13,7 @@ export default function HandleErrors(
       name: error.name,
       message: error.message,
       ...error.data,
-      ...(process.env.NODE_ENV !== 'production' && {
+      ...(appConfig.env !== 'production' && {
         stack: error.stack,
       }),
     });
@@ -21,7 +22,7 @@ export default function HandleErrors(
   return response.status(500).json({
     name: error.name,
     error: 'Internal server error',
-    ...(process.env.NODE_ENV !== 'production' && {
+    ...(appConfig.env !== 'production' && {
       stack: error.stack,
       message: error.message,
     }),

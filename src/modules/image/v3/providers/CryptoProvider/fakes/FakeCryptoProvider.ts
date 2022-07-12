@@ -1,6 +1,6 @@
 import ICryptoProvider from '../models/ICryptoProvider';
 
-class BCryptCryptoProvider implements ICryptoProvider {
+class FakeCryptoProvider implements ICryptoProvider {
   public encrypt(text: string) {
     return text;
   }
@@ -10,4 +10,4 @@ class BCryptCryptoProvider implements ICryptoProvider {
   }
 }
 
-export default BCryptCryptoProvider;
+export default FakeCryptoProvider;

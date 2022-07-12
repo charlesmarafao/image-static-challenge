@@ -8,9 +8,8 @@ export type AppConfig = {
 
 export default {
   name: process.env.APP_NAME,
-  encryption_key:
-    process.env.ENCRYPTION_KEY ||
-    'asdasdasdas234234234234234234234efsfsdfsdfsdfsfsdfsdf',
+  encryption_key: process.env.ENCRYPTION_KEY || '',
   port: process.env.PORT || 9090,
-  env: process.env.NODE_ENV || 'development',
+  env: process.env.NODE_ENV || 'production',
+  host: process.env.HOST || 'http://localhost',
 };

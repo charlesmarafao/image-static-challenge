@@ -6,8 +6,8 @@ export default class imageController {
     request: Request<any, any, any, any>,
     response: Response,
   ): Promise<Response> {
-    const addressUseCase = container.resolve(GetAllUseCase);
-    const data = await addressUseCase.execute();
+    const imageUseCase = container.resolve(GetAllUseCase);
+    const data = await imageUseCase.execute();
     return response.json(data);
   }
 }

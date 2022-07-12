@@ -1,5 +1,5 @@
-import GetImageLinksEncrypted from '@modules/image/v2/services/GetImageLinksEncrypted';
-import GetImageByPathEncrypted from '@modules/image/v2/services/GetImageByPathEncrypted';
+import GetImageLinksEncryptedService from '@modules/image/v2/services/GetImageLinksEncryptedService';
+import GetImageByPathEncryptedService from '@modules/image/v2/services/GetImageByPathEncryptedService';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import { basename } from 'path';
@@ -9,7 +9,7 @@ export default class imageController {
     request: Request<any, any, any, any>,
     response: Response,
   ): Promise<Response> {
-    const getImageLinks = container.resolve(GetImageLinksEncrypted);
+    const getImageLinks = container.resolve(GetImageLinksEncryptedService);
     const data = await getImageLinks.execute();
     return response.json(data);
   }
@@ -17,13 +17,13 @@ export default class imageController {
     request: Request<any, any, any, any>,
     response: Response,
   ): Promise<void> {
-    const getImageByPathEncrypted = container.resolve(GetImageByPathEncrypted);
+    const getImageByPathEncrypted = container.resolve(
+      GetImageByPathEncryptedService,
+    );
 
     const image = await getImageByPathEncrypted.execute(
       request.params.encrypted,
     );
-
-    console.log(request.params.encrypted);
 
     response.sendFile(image, { root: basename('files') });
   }

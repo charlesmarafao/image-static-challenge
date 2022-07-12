@@ -2,6 +2,7 @@
 const { pathsToModuleNameMapper } = require('ts-jest');
 
 const { compilerOptions } = require('./tsconfig.json');
+process.env.TZ = 'UTC';
 
 module.exports = {
   clearMocks: true,
@@ -16,12 +17,9 @@ module.exports = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>',
   }),
-  preset: '@shelf/jest-mongodb',
   testEnvironment: 'node',
   testMatch: ['**/*.spec.ts'],
   transform: {
     '.+\\.ts$': 'ts-jest',
   },
-  setupFiles: ['<rootDir>/__tests__/helpers/setEnvVars.js'],
-  watchPathIgnorePatterns: ['globalConfig'],
 };
