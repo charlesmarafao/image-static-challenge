@@ -1,12 +1,12 @@
 import '@shared/container';
-import handleErrors from '@shared/infra/http/middlweares/handleErrors';
-import { errors } from 'celebrate';
+import { container } from 'tsyringe';
 import cors from 'cors';
+import { errors } from 'celebrate';
 import express from 'express';
 import 'express-async-errors';
 import helmet from 'helmet';
+import handleErrors from '@shared/infra/http/middlweares/handleErrors';
 import swaggerUI from 'swagger-ui-express';
-import { container } from 'tsyringe';
 import swaggerDocs from '../../../swagger.json';
 import ILogger from '../logger/interfaces/ILogger';
 import routes from './routes';
