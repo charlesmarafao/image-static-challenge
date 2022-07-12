@@ -18,11 +18,11 @@ app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-if (logger.http) app.use(logger.http());
+// if (logger.http) app.use(logger.http());
 app.use(routes);
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use(handleErrors);
-app.use(errors());
+// app.use(errors());
 
 
 export default app;
